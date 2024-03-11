@@ -1,0 +1,960 @@
+Program.Sub.ScreenSU.Start
+gui.form1..create
+gui.form1..caption("Backlog Report ")
+gui.form1..size(6645,5685)
+gui.form1..minx(0)
+gui.form1..miny(0)
+gui.form1..position(0,0)
+gui.form1..event(unload,form1_unload)
+gui.form1..alwaysontop(False)
+gui.form1..fontname("Arial")
+gui.form1..fontsize(8)
+gui.form1..forecolor(0)
+gui.form1..fontstyle(,,,,)
+gui.form1..BackColor(-2147483633)
+gui.form1..controlbox(True)
+gui.form1..maxbutton(True)
+gui.form1..minbutton(True)
+gui.form1..mousepointer(0)
+gui.form1..moveable(True)
+gui.form1..sizeable(True)
+gui.form1..ShowInTaskBar(True)
+gui.form1..titlebar(True)
+gui.form1.lblbegpart.create(label,"Beginning Part",True,1935,255,1,300,500,True,0,Arial,8,-2147483633,0)
+gui.form1.lblbegpart.defaultvalue("")
+gui.form1.lblbegpart.controlgroup(0)
+gui.form1.lblendingpart.create(label,"Ending Part",True,1935,255,1,3195,500,True,0,Arial,8,-2147483633,0)
+gui.form1.lblendingpart.defaultvalue("")
+gui.form1.lblendingpart.controlgroup(0)
+gui.form1.lblbegdate.create(label,"Beginning Date",True,1935,255,1,300,1965,True,0,Arial,8,-2147483633,0)
+gui.form1.lblbegdate.defaultvalue("")
+gui.form1.lblbegdate.controlgroup(0)
+gui.form1.lblendingdate.create(label,"Ending Date",True,1935,255,1,2970,1965,True,0,Arial,8,-2147483633,0)
+gui.form1.lblendingdate.defaultvalue("")
+gui.form1.lblendingdate.controlgroup(0)
+gui.form1.lblproductline.create(label,"Product Line",True,1935,255,1,285,3410,True,0,Arial,8,-2147483633,0)
+gui.form1.lblproductline.defaultvalue("")
+gui.form1.lblproductline.controlgroup(0)
+gui.form1.cmdPrint.create(button)
+gui.form1.cmdPrint.caption("Print")
+gui.form1.cmdPrint.visible(True)
+gui.form1.cmdPrint.size(855,375)
+gui.form1.cmdPrint.zorder(0)
+gui.form1.cmdPrint.position(300,4335)
+gui.form1.cmdPrint.enabled(True)
+gui.form1.cmdPrint.fontname("Arial")
+gui.form1.cmdPrint.fontsize(8)
+gui.form1.cmdPrint.event(click,cmdprint_click)
+gui.form1.cmdPrint.defaultvalue("")
+gui.form1.cmdPrint.controlgroup(0)
+gui.form1.chkAllParts.create(checkbox)
+gui.form1.chkAllParts.caption("Include All Parts")
+gui.form1.chkAllParts.visible(True)
+gui.form1.chkAllParts.size(1935,255)
+gui.form1.chkAllParts.zorder(0)
+gui.form1.chkAllParts.position(300,1325)
+gui.form1.chkAllParts.enabled(True)
+gui.form1.chkAllParts.alignment(0)
+gui.form1.chkAllParts.fontname("Arial")
+gui.form1.chkAllParts.fontsize(8)
+gui.form1.chkAllParts.event(click,chkallparts_click)
+gui.form1.chkAllParts.defaultvalue("")
+gui.form1.chkAllParts.controlgroup(0)
+gui.form1.chkAllDates.create(checkbox)
+gui.form1.chkAllDates.caption("Include All Dates")
+gui.form1.chkAllDates.visible(True)
+gui.form1.chkAllDates.size(1935,300)
+gui.form1.chkAllDates.zorder(0)
+gui.form1.chkAllDates.position(300,2800)
+gui.form1.chkAllDates.enabled(True)
+gui.form1.chkAllDates.alignment(0)
+gui.form1.chkAllDates.fontname("Arial")
+gui.form1.chkAllDates.fontsize(8)
+gui.form1.chkAllDates.event(click,chkalldates_click)
+gui.form1.chkAllDates.defaultvalue("")
+gui.form1.chkAllDates.controlgroup(0)
+gui.form1.txtbegpart.create(textbox,"",True,1800,300,0,300,800,True,0,Arial,8,-2147483643,1)
+gui.form1.txtbegpart.event(lostfocus,txtbegpart_lostfocus)
+gui.form1.txtbegpart.defaultvalue("")
+gui.form1.txtbegpart.controlgroup(0)
+gui.form1.txtendingpart.create(textbox,"",True,1800,300,0,3375,800,True,0,Arial,8,-2147483643,1)
+gui.form1.txtendingpart.defaultvalue("")
+gui.form1.txtendingpart.controlgroup(0)
+gui.form1.txtproductline.create(textbox,"",True,1800,300,0,300,3680,True,0,Arial,8,-2147483643,1)
+gui.form1.txtproductline.event(lostfocus,txtproductline_lostfocus)
+gui.form1.txtproductline.defaultvalue("")
+gui.form1.txtproductline.controlgroup(0)
+gui.form1.cmdbegpartbrws.create(button)
+gui.form1.cmdbegpartbrws.caption("^")
+gui.form1.cmdbegpartbrws.visible(True)
+gui.form1.cmdbegpartbrws.size(400,300)
+gui.form1.cmdbegpartbrws.zorder(0)
+gui.form1.cmdbegpartbrws.position(2725,800)
+gui.form1.cmdbegpartbrws.enabled(True)
+gui.form1.cmdbegpartbrws.fontname("Arial")
+gui.form1.cmdbegpartbrws.fontsize(8)
+gui.form1.cmdbegpartbrws.event(click,cmdbegpartbrws_click)
+gui.form1.cmdbegpartbrws.defaultvalue("")
+gui.form1.cmdbegpartbrws.controlgroup(0)
+gui.form1.cmdendingpartbrws.create(button)
+gui.form1.cmdendingpartbrws.caption("^")
+gui.form1.cmdendingpartbrws.visible(True)
+gui.form1.cmdendingpartbrws.size(400,300)
+gui.form1.cmdendingpartbrws.zorder(0)
+gui.form1.cmdendingpartbrws.position(5755,800)
+gui.form1.cmdendingpartbrws.enabled(True)
+gui.form1.cmdendingpartbrws.fontname("Arial")
+gui.form1.cmdendingpartbrws.fontsize(8)
+gui.form1.cmdendingpartbrws.event(click,cmdendingpartbrws_click)
+gui.form1.cmdendingpartbrws.defaultvalue("")
+gui.form1.cmdendingpartbrws.controlgroup(0)
+gui.form1.dpbegdate.create(datepicker)
+gui.form1.dpbegdate.visible(True)
+gui.form1.dpbegdate.size(1935,285)
+gui.form1.dpbegdate.zorder(0)
+gui.form1.dpbegdate.position(300,2250)
+gui.form1.dpbegdate.enabled(True)
+gui.form1.dpbegdate.event(change,dpbegdate_change)
+gui.form1.dpbegdate.checkbox(False)
+gui.form1.dpbegdate.defaultvalue("")
+gui.form1.dpbegdate.controlgroup(0)
+gui.form1.dpendingdate.create(datepicker)
+gui.form1.dpendingdate.visible(True)
+gui.form1.dpendingdate.size(1935,285)
+gui.form1.dpendingdate.zorder(0)
+gui.form1.dpendingdate.position(2970,2250)
+gui.form1.dpendingdate.enabled(True)
+gui.form1.dpendingdate.event(change,dpendingdate_change)
+gui.form1.dpendingdate.checkbox(False)
+gui.form1.dpendingdate.defaultvalue("")
+gui.form1.dpendingdate.controlgroup(0)
+gui.form1.cmdproductlinebrws.create(button)
+gui.form1.cmdproductlinebrws.caption("^")
+gui.form1.cmdproductlinebrws.visible(True)
+gui.form1.cmdproductlinebrws.size(400,300)
+gui.form1.cmdproductlinebrws.zorder(0)
+gui.form1.cmdproductlinebrws.position(2170,3680)
+gui.form1.cmdproductlinebrws.enabled(True)
+gui.form1.cmdproductlinebrws.fontname("Arial")
+gui.form1.cmdproductlinebrws.fontsize(8)
+gui.form1.cmdproductlinebrws.event(click,cmdproductlinebrws_click)
+gui.form1.cmdproductlinebrws.defaultvalue("")
+gui.form1.cmdproductlinebrws.controlgroup(0)
+gui.form1.txtbegloc.create(textbox,"",True,400,300,0,2190,800,True,0,Arial,8,-2147483643,1)
+gui.form1.txtbegloc.event(lostfocus,txtbegloc_lostfocus)
+gui.form1.txtbegloc.defaultvalue("")
+gui.form1.txtbegloc.controlgroup(0)
+gui.form1.txtendingloc.create(textbox,"",True,400,300,0,5245,800,True,0,Arial,8,-2147483643,1)
+gui.form1.txtendingloc.defaultvalue("")
+gui.form1.txtendingloc.controlgroup(0)
+gui.form1.cmdClear.create(button)
+gui.form1.cmdClear.caption("Clear")
+gui.form1.cmdClear.visible(True)
+gui.form1.cmdClear.size(855,375)
+gui.form1.cmdClear.zorder(0)
+gui.form1.cmdClear.position(1700,4315)
+gui.form1.cmdClear.enabled(True)
+gui.form1.cmdClear.fontname("Arial")
+gui.form1.cmdClear.fontsize(8)
+gui.form1.cmdClear.event(click,cmdclear_click)
+gui.form1.cmdClear.defaultvalue("")
+gui.form1.cmdClear.controlgroup(0)
+gui.form1.txtbegpart.tabstop(True)
+gui.form1.txtbegpart.tabindex(1)
+gui.form1.txtbegloc.tabstop(True)
+gui.form1.txtbegloc.tabindex(2)
+gui.form1.cmdbegpartbrws.tabstop(True)
+gui.form1.cmdbegpartbrws.tabindex(3)
+gui.form1.txtendingpart.tabstop(True)
+gui.form1.txtendingpart.tabindex(4)
+gui.form1.txtendingloc.tabstop(True)
+gui.form1.txtendingloc.tabindex(5)
+gui.form1.cmdendingpartbrws.tabstop(True)
+gui.form1.cmdendingpartbrws.tabindex(6)
+gui.form1.chkAllParts.tabstop(True)
+gui.form1.chkAllParts.tabindex(7)
+gui.form1.dpbegdate.tabstop(True)
+gui.form1.dpbegdate.tabindex(8)
+gui.form1.dpendingdate.tabstop(True)
+gui.form1.dpendingdate.tabindex(9)
+gui.form1.chkAllDates.tabstop(True)
+gui.form1.chkAllDates.tabindex(10)
+gui.form1.txtproductline.tabstop(True)
+gui.form1.txtproductline.tabindex(11)
+gui.form1.cmdproductlinebrws.tabstop(True)
+gui.form1.cmdproductlinebrws.tabindex(12)
+gui.form1.cmdPrint.tabstop(True)
+gui.form1.cmdPrint.tabindex(13)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.UDT.uPart.Define("PART",String,PART)
+Variable.UDT.uPart.Define("LOCATION",String,LOCATION)
+Variable.uGlobal.uPart.Declare("uPart")
+Variable.UDT.uHeader.Define("ORDER_NO",String,ORDER_NO)
+Variable.UDT.uHeader.Define("RECORD_NO",String,RECORD_NO)
+Variable.uGlobal.uHeader.Declare("uHeader")
+Variable.UDT.uInvMaster.Define("PART",String,PART)
+Variable.UDT.uInvMaster.Define("DESCRIPTION",String,DESCRIPTION)
+Variable.UDT.uInvMaster.Define("QTY_ORDER",String,QTY_ORDER)
+Variable.UDT.uInvMaster.Define("QTY_ONHAND",String,QTY_ONHAND)
+Variable.UDT.uInvMaster.Define("QTY_REQUIRED",String,QTY_REQUIRED)
+Variable.UDT.uInvMaster.Define("QTY_ONORDER_WO",String,QTY_ONORDER_WO)
+Variable.UDT.uInvMaster.Define("QTY_ONORDER_PO",String,QTY_ONORDER_PO)
+Variable.UDT.uInvMaster.Define("LOCATION",String,LOCATION)
+Variable.uGlobal.uInvMaster.Declare("uInvMaster")
+Variable.UDT.uFinal.Define("PART",String,PART)
+Variable.UDT.uFinal.Define("DESCRIPTION",String,DESCRIPTION)
+Variable.UDT.uFinal.Define("CUSTOMER",String,CUSTOMER)
+Variable.UDT.uFinal.Define("DATE_REQUIRED",String,DATE_REQUIRED)
+Variable.UDT.uFinal.Define("LOCATION",String,LOCATION)
+Variable.UDT.uFinal.Define("BIRUNID",Long,BIRUNID)
+Variable.UDT.uFinal.Define("SO_REQ",Float,SO_REQ)
+Variable.UDT.uFinal.Define("WO_REQ",Float,WO_REQ)
+Variable.UDT.uFinal.Define("QTY_ONHAND",Float,QTY_ONHAND)
+Variable.uGlobal.uFinal.Declare("uFinal")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+'created: 8/26/15
+'coded by: WAW
+
+'open connection
+F.odbc.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+'display the form
+Gui.form1..Visible(true)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Backlog_Report.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+program.sub.form1_unload.start
+F.Intrinsic.Control.SetErrorHandler("form1_unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'close the connection and end the program
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("form1_unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Backlog_Report.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.form1_unload.end
+
+program.sub.cmdprint_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdprint_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.dstartdate.Declare(Date)
+V.Local.denddate.Declare(Date)
+V.Local.sbegpart.Declare(String)
+V.Local.sendpart.Declare(String)
+V.Local.sproductline.Declare(String)
+V.Local.ssql.Declare(String)
+V.Local.splaceholder.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.ipartudt.Declare(Long)
+V.Local.iinvmaster.Declare(Long)
+V.Local.iqty.Declare(Long)
+V.Local.stotalreq.Declare(String)
+V.Local.sqtyonhand.Declare(String)
+V.Local.snetbeforesupply.Declare(String)
+V.Local.snetwithsupply.Declare(String)
+V.Local.stotalpo.Declare(String)
+V.Local.sqtyorder.Declare(String)
+V.Local.sqtycompleted.Declare(String)
+V.Local.sopenwoqty.Declare(String)
+V.Local.sstartdate.Declare(String)
+V.Local.senddate.Declare(String)
+V.Local.bpreserve.Declare(Boolean)
+V.Local.ireportid.Declare(Long)
+V.Local.sreportfilepath.Declare(String)
+V.Local.sparams.Declare(String)
+V.Local.sparamvalues.Declare(String)
+V.Local.sPartRange.Declare(String)
+V.Local.sDateRange.Declare(String)
+V.Local.irunid.Declare(Long)
+
+'make the screen not visible
+Gui.form1..Visible(false)
+
+'invoke the wait dialog
+F.Intrinsic.UI.InvokeWaitDialog("Please wait while the report is being generated.")
+
+'F.Intrinsic.Debug.InvokeDebugger
+'F.Intrinsic.Debug.Stop
+'V.Local.sparams.Set("BIRUNID*!*AllParts*!*AllDates*!*PL*!*PartRange*!*DateRange")
+F.Global.BI.GetIDFromName("GCG_Backlog_Report.rpt",V.Local.ireportid)
+f.Global.BI.getrunid(v.Local.irunid)
+'V.Local.sparamvalues.Set(V.Local.ireportid)
+
+'RAN IF THE USER JUST CLICKS PRINT AND USES DATES THAT PRE-POPULATE
+'check to see if the user wants to select based on nothing/used current dates
+F.Intrinsic.Control.If(V.Screen.form1!chkAllParts.Value,=,0)
+F.Intrinsic.Control.AndIf(V.Screen.form1!txtbegpart.Text,=,"")
+F.Intrinsic.Control.AndIf(V.Screen.form1!txtendingpart.Text,=,"")
+F.Intrinsic.Control.AndIf(V.Screen.form1!txtproductline.Text,=,"")
+F.Intrinsic.Control.AndIf(V.Screen.form1!chkAllDates.Value,<>,1)
+	'set the local variables for starting and ending date and format them to query with
+	V.Local.dstartdate.Set(V.Screen.form1!dpbegdate.Value)
+	V.Local.denddate.Set(V.Screen.form1!dpendingdate.Value)
+	F.Intrinsic.String.Format(V.Screen.form1!dpbegdate.Value,"YYYY-MM-DD",V.local.sstartdate)
+	F.Intrinsic.String.Format(V.Screen.form1!dpendingdate.Value,"YYYY-MM-DD",V.local.senddate)
+
+	'run based on the dp dates
+	F.Intrinsic.String.Build("SELECT ORDER_NO, RECORD_NO from V_ORDER_HEADER where  DATE_DUE between '{0}' and '{1}'",V.Local.sstartdate,V.Local.senddate,V.Local.ssql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.ssql)
+	'if eof is false load to the uHeader UDT
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+		F.Intrinsic.Variable.loadudtfromrecordset("con","rst","uglobal.uHeader","false",1000)
+		F.ODBC.con!rst.Close
+		'loop through the UDT and get PARTS with order and record number and where Qty shipped is less than qty on sales order line
+		F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uHeader.LBound,V.uGlobal.uHeader.UBound,1)
+			F.Intrinsic.String.Build("SELECT PART, LOCATION from V_ORDER_LINES where ORDER_NO = '{0}' and RECORD_NO = '{1}' and QTY_SHIPPED < QTY_ORDERED",V.uglobal.uHeader(v.Local.i)!ORDER_NO,V.uGlobal.uHeader(v.Local.i)!RECORD_NO,V.Local.ssql)
+			F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.ssql)
+			'if EOF = false load the uPart UDT witht he parts found
+			F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+				F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","uglobal.uPart","true",1000)
+				F.ODBC.con!rst.Close
+			F.Intrinsic.Control.Else
+				F.ODBC.con!rst.Close
+			F.Intrinsic.Control.EndIf
+		F.intrinsic.Control.Next(V.Local.i)
+	F.Intrinsic.Control.Else
+		F.ODBC.con!rst.Close
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+'RAN IF TH EUSER CHECKS THE ALL DATES CHECKBOX
+'select based on all dates
+F.Intrinsic.Control.If(V.Screen.form1!chkAllDates.Value,=,1)
+	F.Intrinsic.String.Build("SELECT ORDER_NO, RECORD_NO,DATE_DUE from V_ORDER_HEADER where ORDER_NO <> '{0}'","TEST",V.Local.ssql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.ssql)
+	'if the eof is false load the uHeader UDT
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+		F.Intrinsic.Variable.loadudtfromrecordset("con","rst","uglobal.uHeader","true",1000)
+		F.ODBC.con!rst.Close
+		'loop through the UDT and get PARTS with order and record number and where Qty shipped is less than qty on sales order line
+		F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uHeader.LBound,V.uGlobal.uHeader.UBound,1)
+			F.Intrinsic.String.Build(" SELECT PART, LOCATION from V_ORDER_LINES where ORDER_NO = '{0}' and RECORD_NO = '{1}' and QTY_SHIPPED < QTY_ORDERED",V.uglobal.uHeader(v.Local.i)!ORDER_NO,V.uGlobal.uHeader(v.Local.i)!RECORD_NO,V.Local.ssql)
+			F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.ssql)
+
+			'if EOF = false load the uPart UDT witht he parts found
+			F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+				F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","uglobal.uPart","true",1000)
+					F.ODBC.con!rst.Close
+			F.Intrinsic.Control.Else
+				F.ODBC.con!rst.Close
+			F.Intrinsic.Control.EndIf
+
+		F.intrinsic.Control.Next(V.Local.i)
+	F.Intrinsic.Control.Else
+		F.ODBC.con!rst.Close
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+'RAN IF THE USER CHECKS THE ALL PARTS CHECKBOX
+'select based on all parts
+F.Intrinsic.Control.If(V.Screen.form1!chkAllParts.Value,=,1)
+	F.Intrinsic.String.Build("SELECT PART,LOCATION  from V_INVENTORY_MSTR where PART <> '{0}'","",V.Local.ssql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.ssql)
+	'if eof is false load to the uByDate UDT
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+		F.Intrinsic.Variable.loadudtfromrecordset("con","rst","uglobal.uPart","true",1000)
+		F.ODBC.con!rst.Close
+	F.Intrinsic.Control.Else
+		F.ODBC.con!rst.Close
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+'RAN IF THE USER HAS A RANGE OF PARTS TO SELECT FROM
+'select based on parts selected
+F.Intrinsic.Control.If(V.Screen.form1!txtbegpart.Text,<>,"")
+F.intrinsic.control.andif(V.Screen.form1!txtendingpart.Text,<>,"")
+	'set local variables as beggining and ending parts
+	V.Local.sbegpart.Set(V.Screen.form1!txtbegpart.Text)
+	V.Local.sendpart.Set(V.Screen.form1!txtendingpart.Text)
+	F.Intrinsic.String.Build("SELECT PART, LOCATION FROM V_INVENTORY_MSTR WHERE PART BETWEEN '{0}' AND '{1}'",V.Local.sbegpart,V.Local.sendpart,V.Local.ssql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.ssql)
+	'if eof is false load to the uByDate UDT
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+		F.Intrinsic.Variable.loadudtfromrecordset("con","rst","uglobal.uPart","true",1000)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+'if the beginning part is filled but ending is blank exit sub and show user a message
+F.Intrinsic.Control.ElseIf(V.Screen.form1!txtbegpart.Text,<>,"")
+F.intrinsic.control.andif(V.Screen.form1!txtendingpart.Text,=,"")
+	F.Intrinsic.UI.Msgbox("Please select an ending part")
+	F.Intrinsic.Control.ExitSub
+'if the ending part is filled but the beginning part is blank exit sub and show the user a message
+F.Intrinsic.Control.ElseIf(V.Screen.form1!txtbegpart.Text,=,"")
+F.intrinsic.control.andif(V.Screen.form1!txtendingpart.Text,<>,"")
+F.Intrinsic.UI.Msgbox("Please select a beginning part")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'RAN IF THE USER SELECTS A PRODUCT LINE
+'check to see if the user wants to select based on product line
+F.Intrinsic.Control.If(V.Screen.form1!txtproductline.Text,<>,"")
+	V.Local.sproductline.Set(V.Screen.form1!txtproductline.Text)
+	'run based on product line
+	F.Intrinsic.String.Build("SELECT PART, LOCATION from V_INVENTORY_MSTR where PRODUCT_LINE = '{0}'",V.Local.sproductline,V.Local.ssql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.ssql)
+	'if eof is false load to the uByDate UDT
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+		F.Intrinsic.Variable.loadudtfromrecordset("con","rst","uglobal.uPart","true",1000)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+F.Intrinsic.Control.EndIf
+
+'populate the data for the uInvMaster UDT that will be used to populate the HEADER table
+F.Intrinsic.Control.For(V.Local.ipartudt,V.uGlobal.uPart.LBound,V.uGlobal.uPart.UBound,1)
+	F.Intrinsic.String.Build("SELECT PART, LOCATION, DESCRIPTION,QTY_ORDER, QTY_ONHAND, QTY_REQUIRED, QTY_ONORDER_WO, QTY_ONORDER_PO from V_INVENTORY_MSTR where PART = '{0}' and LOCATION = '{1}'",V.uGlobal.upart(v.Local.ipartudt)!PART,V.uglobal.uPart(v.local.ipartudt)!LOCATION,V.Local.ssql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.ssql)
+	'if eof is false load to the uInvMaster UDT
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+		F.Intrinsic.Variable.loadudtfromrecordset("con","rst","uglobal.uInvMaster","true",1000)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+F.Intrinsic.Control.Next(V.Local.ipartudt)
+
+'Open up the recordset and clear out the Header table
+F.ODBC.Connection!con.OpenRecordsetRW("rst","GCG_BCKLOG_HEADER")
+F.Intrinsic.String.Concat("DELETE from ","GCG_BCKLOG_HEADER",V.local.ssql)
+F.ODBC.connection!con.Execute(V.Local.ssql)
+'save the uInvMaster UDT to the Header table
+f.Intrinsic.Variable.saveudttorecordset("con","rst","v.uglobal.uInvMaster")
+F.ODBC.con!rst.Close
+'redim preserv the uFinal UDT to match the uInvMaster
+V.uGlobal.uFinal.RedimPreserve(V.uGlobal.uInvMaster.LBound,V.uGlobal.uInvMaster.UBound)
+'loop through the uInv UDT and Header table to get data for the uFinal UDT
+F.Intrinsic.Control.For(V.Local.iqty,V.uGlobal.uInvMaster.LBound,V.uGlobal.uInvMaster.UBound,1)
+	V.uGlobal.uFinal(v.Local.iqty)!PART.Set(V.uGlobal.uInvMaster(v.Local.iqty)!PART)
+	V.uGlobal.uFinal(v.Local.iqty)!DESCRIPTION.Set(V.uGlobal.uInvMaster(v.Local.iqty)!DESCRIPTION)
+	V.uGlobal.uFinal(v.Local.iqty)!LOCATION.Set(V.uGlobal.uInvMaster(v.Local.iqty)!LOCATION)
+	V.uGlobal.uFinal(v.Local.iqty)!BIRUNID.Set(V.Local.irunid)
+
+	'get the qty on hand
+	F.intrinsic.String.Build("select QTY_ONHAND from GCG_BCKLOG_HEADER where PART = '{0}' and LOCATION = '{1}' and DESCRIPTION = '{2}'",V.uGlobal.uInvMaster(v.Local.iqty)!PART,V.uGlobal.uInvMaster(v.Local.iqty)!LOCATION,V.uglobal.uInvMaster(v.local.iqty)!dESCRIPTION,V.Local.ssql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.ssql)
+'	'if the eof is equal to false set the QTY_ONHAND
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+		V.uglobal.ufinal(v.local.iqty)!QTY_ONHAND.Set(V.ODBC.con!rst.fieldvaltrim!QTY_ONHAND)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+	'set the WO_REQ field
+	V.uGlobal.uFinal(v.Local.iqty)!WO_REQ.Set(V.uGlobal.uInvMaster(v.Local.iqty)!QTY_ONORDER_WO)
+	'get teh SO_REQ
+
+	'selectsum(qty_ordered)asqty_ordered,sum(qty_shipped)asqty_shipped,sum(qty_ordered-qty_shipped)asqtyfromv_order_lines;
+	F.Intrinsic.String.Build("select sum(qty_ordered) as qty_ordered, sum(qty_shipped) as qty_shipped, sum(qty_ordered-qty_shipped) as SO_REQ from v_order_lines where PART = '{0}'",V.uGlobal.uInvMaster(v.Local.iqty)!PART,V.Local.ssql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.ssql)
+'	'if the eof is equal to false set theSO REQ
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+		V.uglobal.ufinal(v.local.iqty)!SO_REQ.Set(V.ODBC.con!rst.fieldvaltrim!SO_REQ)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+
+	F.Intrinsic.String.Build("Select TOP 1 DATE_DUE from V_ORDER_HEADER where ORDER_NO in(SELECT ORDER_NO from V_ORDER_LINES where PART = '{0}') order by DATE_DUE asc",V.uGlobal.uInvMaster(v.local.iqty)!PART,V.Local.ssql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.ssql)
+'	'if the eof is equal to false set theDATE_REQUIRED
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+		V.uglobal.ufinal(v.local.iqty)!DATE_REQUIRED.Set(V.ODBC.con!rst.fieldvaltrim!DATE_DUE)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+
+F.Intrinsic.Control.Next(V.Local.iqty)
+
+'clear out everything from the LINES table and load it with what is in the uFinalUDT
+F.ODBC.Connection!con.OpenRecordsetRW("rst","GCG_BCKLOG_LINES")
+F.Intrinsic.String.Concat("DELETE from ","GCG_BCKLOG_LINES",V.local.ssql)
+F.ODBC.connection!con.Execute(V.Local.ssql)
+'save the uFinal UDT to the Lines table
+f.Intrinsic.Variable.saveudttorecordset("con","rst","v.uglobal.uFinal")
+F.ODBC.con!rst.Close
+
+'build range
+F.Intrinsic.String.Build("{0} {1} - {2} {3}",V.Screen.form1!txtbegpart.Text,V.Screen.form1!txtbegloc.Text,V.Screen.form1!txtendingpart.Text,V.Screen.form1!txtendingloc.Text,V.Local.sPartRange)
+F.Intrinsic.String.Build("{0} - {1}",V.Screen.form1!dpbegdate.Value,V.Screen.form1!dpendingdate.Value,V.Local.sDateRange)
+
+V.Local.sparams.Set("BIRUNID*!*AllParts*!*AllDates*!*PL*!*PartRange*!*DateRange")
+'V.Local.sparamvalues.Set(V.Local.ireportid)
+F.Intrinsic.Control.If(V.Screen.form1!txtbegpart.Text,<>,"")
+	V.Local.sDateRange.Set("")
+F.Intrinsic.Control.ElseIf(V.Screen.form1!chkAllDates.Value,=,1)
+	V.Local.sDateRange.Set("")
+F.Intrinsic.Control.ElseIf(V.Screen.form1!chkAllParts.Value,=,1)
+	V.Local.sDateRange.Set("")
+F.Intrinsic.Control.ElseIf(V.Screen.form1!txtproductline.Text,<>,"")
+	V.Local.sDateRange.Set("")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.form1!txtbegpart.Text,=,"")
+	V.Local.sPartRange.Set("")
+F.Intrinsic.control.EndIf
+
+F.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}*!*{4}*!*{5}",V.Local.irunid,V.Screen.form1!chkAllParts.Value,V.Screen.form1!chkAllDates.Value,V.Screen.form1!txtproductline.Text,V.Local.sPartRange,V.Local.sDateRange,V.Local.sparamvalues)
+
+F.Intrinsic.String.Split(V.Local.sparams,"*!*",V.Local.sparams)
+F.Intrinsic.String.Split(V.Local.sparamvalues,"*!*",V.Local.sparamvalues)
+
+'call the report to be printed
+F.Global.BI.PrintReport(V.Local.ireportid,0,V.Local.sparams,V.Local.sparamvalues,"GSView",False)
+
+'close wait dialog
+F.Intrinsic.UI.CloseWaitDialog
+
+'call the unload subroutine
+F.Intrinsic.Control.CallSub(Form1_unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdprint_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Backlog_Report.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdprint_click.end
+
+program.sub.cmdproductlinebrws_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdproductlinebrws_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sret.Declare(String)
+
+'launch the common product line browser
+F.Intrinsic.UI.Browser(130,"",V.Local.sret)
+
+'set the beg part textbox as the returned variable and clear the other selection fields
+F.Intrinsic.Control.If(V.Local.sret,=,"***CANCEL***")
+	F.Intrinsic.UI.Msgbox("No Part Was Selected")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.ElseIf(V.Local.sret,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sret,"*!*",V.Local.sret)
+	Gui.form1.txtproductline.text(V.Local.sret(0))
+	Gui.form1.dpbegdate.Enabled(false)
+	Gui.form1.dpendingdate.Enabled(false)
+	Gui.form1.chkAllDates.Value(0)
+	Gui.form1.chkAllParts.Value(0)
+	Gui.form1.txtbegpart.Text("")
+	Gui.form1.txtendingpart.Text("")
+	Gui.form1.txtbegloc.Text("")
+	Gui.form1.txtendingloc.Text("")
+	Gui.form1.txtbegloc.Enabled(false)
+	Gui.form1.txtendingloc.Enabled(false)
+	Gui.form1.txtbegpart.Enabled(false)
+	Gui.form1.txtendingpart.Enabled(false)
+	Gui.form1.cmdbegpartbrws.Enabled(false)
+	Gui.form1.cmdendingpartbrws.Enabled(false)
+	Gui.form1.txtproductline.Enabled(false)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdproductlinebrws_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Backlog_Report.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdproductlinebrws_click.end
+
+program.sub.cmdbegpartbrws_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdbegpartbrws_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sret.Declare(String)
+
+'launch the common part browser
+F.Intrinsic.UI.Browser(105,"",V.Local.sret)
+
+'set the beg part textbox as the returned variable and clear the other selection fields
+F.Intrinsic.Control.If(V.Local.sret,=,"***CANCEL***")
+	F.Intrinsic.UI.Msgbox("No Part Was Selected")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.ElseIf(V.Local.sret,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sret,"*!*",V.Local.sret)
+	Gui.form1.txtbegpart.text(V.Local.sret(0))
+	Gui.form1.txtbegloc.Text(V.Local.sret(1))
+	Gui.form1.txtendingpart.Text(V.Local.sret(0))
+	Gui.form1.dpbegdate.Enabled(false)
+	Gui.form1.dpendingdate.Enabled(false)
+	Gui.form1.chkAllDates.Enabled(false)
+	Gui.form1.chkAllDates.Value(0)
+	Gui.form1.chkAllParts.Value(0)
+	Gui.form1.cmdproductlinebrws.Enabled(false)
+	Gui.form1.txtproductline.Text("")
+	Gui.form1.txtproductline.Enabled(false)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdbegpartbrws_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Backlog_Report.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdbegpartbrws_click.end
+
+program.sub.cmdendingpartbrws_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdendingpartbrws_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sret.Declare(String)
+
+'launch the common part browser
+F.Intrinsic.UI.Browser(105,"",V.Local.sret)
+
+'set the beg part textbox as the returned variable and clear the other selection fields
+F.Intrinsic.Control.If(V.Local.sret,=,"***CANCEL***")
+	F.Intrinsic.UI.Msgbox("No Part Was Selected")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.ElseIf(V.Local.sret,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sret,"*!*",V.Local.sret)
+	Gui.form1.txtendingpart.text(V.Local.sret(0))
+	Gui.form1.txtendingloc.Text(V.Local.sret(1))
+	Gui.form1.dpbegdate.Enabled(false)
+	Gui.form1.dpendingdate.Enabled(false)
+	Gui.form1.chkAllDates.Value(0)
+	Gui.form1.chkAllParts.Value(0)
+	Gui.form1.chkAllDates.Enabled(false)
+	Gui.form1.cmdproductlinebrws.Enabled(false)
+	Gui.form1.txtproductline.Text("")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdendingpartbrws_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Backlog_Report.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdendingpartbrws_click.end
+
+program.sub.chkallparts_click.start
+F.Intrinsic.Control.SetErrorHandler("chkallparts_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'if the all parts checkbox is checked disable the other selection options, otherwise enable them
+F.Intrinsic.Control.If(V.Screen.form1!chkAllParts.Value,=,1)
+	Gui.form1.txtbegpart.Enabled(false)
+	Gui.form1.txtendingpart.Enabled(false)
+	Gui.form1.cmdbegpartbrws.Enabled(false)
+	Gui.form1.cmdendingpartbrws.Enabled(false)
+	Gui.form1.dpbegdate.Enabled(false)
+	Gui.form1.dpendingdate.Enabled(false)
+	Gui.form1.txtbegpart.Text("")
+	Gui.form1.txtendingpart.Text("")
+	Gui.form1.txtproductline.Text("")
+	Gui.form1.txtproductline.Enabled(false)
+	Gui.form1.chkAllDates.Enabled(false)
+	Gui.form1.cmdproductlinebrws.Enabled(false)
+	Gui.form1.txtbegloc.Enabled(false)
+	Gui.form1.txtbegloc.Text("")
+	Gui.form1.txtendingloc.Enabled(false)
+	Gui.form1.txtendingloc.Text("")
+F.Intrinsic.Control.Else
+	Gui.form1.txtbegpart.Enabled(true)
+	Gui.form1.txtendingpart.Enabled(true)
+	Gui.form1.cmdbegpartbrws.Enabled(true)
+	Gui.form1.cmdendingpartbrws.Enabled(true)
+	Gui.form1.dpbegdate.Enabled(true)
+	Gui.form1.dpendingdate.Enabled(true)
+	Gui.form1.txtproductline.Enabled(true)
+	Gui.form1.chkAllDates.Enabled(true)
+	Gui.form1.cmdproductlinebrws.Enabled(true)
+	Gui.form1.txtbegloc.Enabled(true)
+	Gui.form1.txtendingloc.Enabled(true)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chkallparts_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Backlog_Report.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.chkallparts_click.end
+
+program.sub.chkalldates_click.start
+F.Intrinsic.Control.SetErrorHandler("chkalldates_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'if the all dates checkbox is checked disable all other selections, otherwise enable them
+F.Intrinsic.Control.If(V.Screen.form1!chkAllDates.Value,=,1)
+	Gui.form1.dpbegdate.Enabled(false)
+	Gui.form1.dpendingdate.Enabled(false)
+	Gui.form1.txtbegpart.Enabled(false)
+	Gui.form1.txtendingpart.Enabled(false)
+	Gui.form1.txtbegpart.Text("")
+	Gui.form1.txtendingpart.Text("")
+	Gui.form1.txtproductline.Enabled(false)
+	Gui.form1.chkAllParts.Enabled(false)
+	Gui.form1.cmdproductlinebrws.Enabled(false)
+	Gui.form1.cmdbegpartbrws.Enabled(false)
+	Gui.form1.cmdendingpartbrws.Enabled(false)
+	Gui.form1.txtbegloc.Enabled(false)
+	Gui.form1.txtbegloc.Text("")
+	Gui.form1.txtendingloc.Enabled(false)
+	Gui.form1.txtendingloc.Text("")
+F.Intrinsic.Control.Else
+	Gui.form1.dpbegdate.Enabled(true)
+	Gui.form1.dpendingdate.Enabled(true)
+	Gui.form1.txtbegpart.Enabled(true)
+	Gui.form1.txtendingpart.Enabled(true)
+	Gui.form1.txtproductline.Enabled(true)
+	Gui.form1.chkAllParts.Enabled(true)
+	Gui.form1.cmdproductlinebrws.Enabled(true)
+	Gui.form1.cmdbegpartbrws.Enabled(true)
+	Gui.form1.cmdendingpartbrws.Enabled(true)
+	Gui.form1.txtbegloc.Enabled(true)
+	Gui.form1.txtendingloc.Enabled(true)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chkalldates_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Backlog_Report.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.chkalldates_click.end
+
+program.sub.txtbegpart_lostfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtbegpart_lostfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Gui.form1.txtendingpart.Text(V.Screen.form1!txtbegpart.Text)
+Gui.form1.txtendingloc.Text(V.Screen.form1!txtbegloc.Text)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtbegpart_lostfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Backlog_Report.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtbegpart_lostfocus.end
+
+program.sub.txtproductline_lostfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtproductline_lostfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+	Gui.form1.txtbegpart.Enabled(false)
+	Gui.form1.txtendingpart.Enabled(false)
+	Gui.form1.cmdbegpartbrws.Enabled(false)
+	Gui.form1.cmdendingpartbrws.Enabled(false)
+	Gui.form1.dpbegdate.Enabled(false)
+	Gui.form1.dpendingdate.Enabled(false)
+	Gui.form1.txtbegpart.Text("")
+	Gui.form1.txtendingpart.Text("")
+	Gui.form1.chkAllDates.Enabled(false)
+	Gui.form1.txtbegloc.Enabled(false)
+	Gui.form1.txtbegloc.Text("")
+	Gui.form1.txtendingloc.Enabled(false)
+	Gui.form1.txtendingloc.Text("")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtproductline_lostfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Backlog_Report.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtproductline_lostfocus.end
+
+program.sub.txtbegloc_lostfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtbegloc_lostfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Gui.form1.txtendingpart.Text(V.Screen.form1!txtbegpart.Text)
+Gui.form1.txtendingloc.Text(V.Screen.form1!txtbegloc.Text)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtbegloc_lostfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Backlog_Report.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtbegloc_lostfocus.end
+
+program.sub.cmdclear_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdclear_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.serror.Declare(String)
+
+'clear text fields/checkboxes and enable all browsers
+Gui.form1.txtbegpart.text("")
+Gui.form1.txtbegloc.Text("")
+Gui.form1.txtbegpart.Enabled(true)
+Gui.form1.txtbegloc.Enabled(true)
+Gui.form1.txtendingloc.Enabled(true)
+Gui.form1.txtendingpart.Enabled(true)
+Gui.form1.txtendingpart.Text("")
+Gui.form1.txtendingloc.Text("")
+Gui.form1.dpbegdate.Enabled(True)
+Gui.form1.dpendingdate.Enabled(true)
+Gui.form1.chkAllDates.Enabled(true)
+Gui.form1.chkAllDates.Value(0)
+Gui.form1.chkAllParts.Value(0)
+Gui.form1.cmdproductlinebrws.Enabled(true)
+Gui.form1.txtproductline.Text("")
+Gui.form1.txtproductline.Enabled(true)
+Gui.form1.cmdbegpartbrws.Enabled(true)
+Gui.form1.cmdendingpartbrws.Enabled(true)
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdclear_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Backlog_Report.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdclear_click.end
+
+program.sub.dpbegdate_change.start
+F.Intrinsic.Control.SetErrorHandler("dpbegdate_change_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'clear text fields/checkboxes and enable all browsers
+Gui.form1.txtbegpart.text("")
+Gui.form1.txtbegloc.Text("")
+Gui.form1.txtendingpart.Text("")
+Gui.form1.txtendingloc.Text("")
+Gui.form1.txtbegloc.Enabled(false)
+Gui.form1.txtendingloc.Enabled(false)
+Gui.form1.txtbegpart.Enabled(false)
+Gui.form1.txtendingpart.Enabled(false)
+
+Gui.form1.chkAllDates.Enabled(true)
+Gui.form1.chkAllDates.Value(0)
+Gui.form1.chkAllParts.Value(0)
+Gui.form1.cmdproductlinebrws.Enabled(false)
+Gui.form1.txtproductline.Text("")
+Gui.form1.txtproductline.Enabled(false)
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("dpbegdate_change_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Backlog_Report.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.dpbegdate_change.end
+
+program.sub.dpendingdate_change.start
+F.Intrinsic.Control.SetErrorHandler("dpendingdate_change_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'clear text fields/checkboxes and enable all browsers
+Gui.form1.txtbegpart.text("")
+Gui.form1.txtbegloc.Text("")
+Gui.form1.txtendingpart.Text("")
+Gui.form1.txtendingloc.Text("")
+Gui.form1.txtbegloc.Enabled(false)
+Gui.form1.txtendingloc.Enabled(false)
+Gui.form1.txtbegpart.Enabled(false)
+Gui.form1.txtendingpart.Enabled(false)
+
+Gui.form1.chkAllDates.Enabled(true)
+Gui.form1.chkAllDates.Value(0)
+Gui.form1.chkAllParts.Value(0)
+Gui.form1.cmdproductlinebrws.Enabled(false)
+Gui.form1.txtproductline.Text("")
+Gui.form1.txtproductline.Enabled(false)
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("dpendingdate_change_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Backlog_Report.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.dpendingdate_change.end
+
+Program.Sub.Comments.Start
+${$0$}$GCG_Backlog_Report$}$WAW$}$8/26/2015
+Program.Sub.Comments.End
+
